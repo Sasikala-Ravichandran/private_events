@@ -1,0 +1,23 @@
+creator:  <%= @event.creator.name  %><br/>  
+
+Title : <%= @event.title %><br/>
+
+ID: <%= @event.id%><br/>
+current_name: <%= current_user.name %><br/>
+
+
+<% unless @event.attendees.include?(current_user) %>
+	<%= render 'attend_form' %>
+	 
+<% else %>
+	<%= render 'cancel_form' %>
+	 
+<% end %>
+
+Attenders of event:<br/>
+<%= @event.attendees.count %><br/>
+<% @event.attendees.each do |attendee| %>
+<li> <%= link_to attendee.name, attendee %></li>
+<% end %> 
+
+<%= link_to "Logout", logout_path %>

@@ -1,0 +1,19 @@
+Create an event
+
+<%= form_for @event do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %><br/>
+
+<%= f.label :location %>
+<%= f.text_field :location %><br/>
+
+<%= f.label :date %>
+<%= f.date_select :date %><br/>
+
+<%= f.label :time %>
+<%= f.time_select :time, :ampm => true %><br/>
+
+<%= f.submit "create an event"%>
+
+<% end %>

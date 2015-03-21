@@ -1,0 +1,28 @@
+Name: <%= @user.name %><br/>
+Email: <%= @user.email %><br/>
+Password_digest:<%= @user.password_digest %><br/>
+
+Created_events:<%= @user.created_events.count %>
+<% @user.created_events.each do |event| %>
+<li><%= link_to event.title, event %></li>
+<% end %><br/>
+
+Attending_events: <%= @user.attending_events.count %>
+<% @user.attending_events.each do |event| %>
+<li><%= link_to event.title, event %></li>
+<% end %><br/>
+
+<% if logged_in? %>
+	Current User: <%= current_user.name %><br/>
+	Current ID: <%= current_user.id %><br/>
+	Current remember_token: <%= current_user.remember_digest %><br/>
+	Current remember_token: <%= @user.remember_token %><br/>
+	<br/><%= link_to "Logout", logout_path %>
+<% else %>
+   <br/>Not logged_in. Please 
+   <br/><%= link_to "Login", login_path %>
+<% end %>
+
+
+<%= link_to "Create an event", events_new_path %>
+<%= link_to "Attend an event", events_path %>

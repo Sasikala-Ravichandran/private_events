@@ -1,0 +1,4 @@
+<%= form_for(current_user.attendance.build(attending_events_id: @event.id)) do |f| %>
+  <div><%= f.hidden_field :attending_events_id %></div>
+  <%= f.submit "Attend"%>
+<% end %>
