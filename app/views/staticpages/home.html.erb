@@ -1,0 +1,14 @@
+ <% if logged_in? %>
+     <%= current_user.name %><br/>
+     <%= current_user.email %><br/>
+     <%= link_to "Create an Event", new_event_path %><br/>
+     <%= link_to "Show my Details", current_user %><br/>
+
+<% else %>
+ <h1>Plan an Event</h1>
+    <p>Keep track of events with your friends.  This is a simple app to organize   your event planning.
+       </p>
+    <p><%= link_to "Create an Event", signup_path %></p>
+  </div>
+  <% end %>
+ 

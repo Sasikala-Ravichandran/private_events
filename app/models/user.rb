@@ -3,10 +3,17 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token
   
   has_many :created_events, class_name: "Event", foreign_key: "creator_id"
+  
   has_many :attendance, foreign_key: "attendees_id"
   has_many :attending_events, through: :attendance
 
+ def upcoming_events
+  self.attending_events.upcoming
+ end
 
+ def past_events
+  self.attending_events.past
+ end
 
  def User.generate_token
     SecureRandom.urlsafe_base64

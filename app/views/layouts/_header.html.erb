@@ -1,0 +1,16 @@
+<h1 class="text-muted">Private EventBrite</h1>
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", about_path %></li>
+    <% if logged_in? %>
+      <li><%= link_to "Show me all the events", events_path %></li>
+      <li><%= link_to "Show all my friends", users_path %></li>
+      <li><%= link_to "(#{current_user.name}) Sign Out", logout_path, method: "delete" %></li>
+    <% else %>
+        <li><%= link_to "Sign Up", signup_path %></li>
+        <li><%= link_to "Sign In", login_path %></li>
+    <% end %>
+  </ul>
+  
+</div>

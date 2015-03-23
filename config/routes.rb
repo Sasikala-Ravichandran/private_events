@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  get 'events/index'
+  root 'staticpages#home'
 
-  get 'events/new'
+  get  'about' => 'staticpages#about'
 
-  get 'events/edit'
-
-  get 'events/destroy'
-
-  get 'session/new'
-
-  get 'session/destroy'
+  
 
  get 'signup' => 'users#new'
  get 'login' => 'session#new'
