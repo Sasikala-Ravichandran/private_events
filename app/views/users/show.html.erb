@@ -1,39 +1,23 @@
-Name: <%= @user.name %><br/>
-Email: <%= @user.email %><br/>
-
-<br/>
-<br/>
 <% if logged_in? %>
-You have created <%= @user.created_events.count %> events:<br/>
-<% @user.created_events.each do |event| %>
-<li><%= link_to event.title, event %></li>
-<% end %>
+  <P>You have created <%= @user.created_events.count %> events:</P>
+  <% @user.created_events.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+  <% end %>
 
-You are going to attend <%= @user.upcoming_events.count %>  events:
+  <P>You are going to attend <%= @user.upcoming_events.count %> events:</P>
 
-<% @user.upcoming_events.each do |event| %>
-<li><%= link_to event.title, event %></li>
-<% end %><br/>
+  <% @user.upcoming_events.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+  <% end %>
 
-You have attended <%= @user.past_events.count %> events so far:
-<% @user.past_events.each do |event| %>
-<li><%= link_to event.title, event %></li>
-<% end %><br/>
-
-
-<br/>
-<br/>
-<%= link_to "Create an event", new_event_path %><br/>
-<%= link_to "Attend an event", events_path %>
-<br/>
-<br/>
-<% end %>
---My Reference
-Password_digest:<%= @user.password_digest %><br/>
-
-<% if logged_in? %>
-	Current User: <%= current_user.name %><br/>
-	Current ID: <%= current_user.id %><br/>
-	Current remember_token: <%= current_user.remember_digest %><br/>
-	Current remember_token: <%= @user.remember_token %><br/>
+  <P>You have attended <%= @user.past_events.count %> events so far:</P>
+  <% @user.past_events.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+  <% end %>
+  <br/>
+  <br/>
+  <%= link_to "Create an event", new_event_path %><br/>
+  <%= link_to "Attend an event", events_path %>
+  <br/>
+  <br/>
 <% end %>

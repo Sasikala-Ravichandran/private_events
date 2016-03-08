@@ -1,11 +1,9 @@
 <ol>
   <% @users.each do |user| %>
-	<% if logged_in? && current_user.eql?(user)%>
-		<li><%= link_to user.name, user %></li>
-	<% else %>
-	  <li><%= user.name %></li>
-	<% end %>
- <% end %>
-</ol>
-
-  
+    <% if logged_in? && current_user.eql?(user)%>
+      <li><%= link_to user.name, user %></li>
+    <% else %>
+      <li><%= user.name %></li>
+    <% end %>
+  <% end %>
+</ol> 

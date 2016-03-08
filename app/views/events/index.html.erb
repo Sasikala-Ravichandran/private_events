@@ -1,10 +1,9 @@
- <br/>
- Upcoming events:
- <% @upcoming_events.each do |event| %>
- <li><%= link_to event.title, event %></li>
- <% end %>
+<h1>Upcoming Events</h1>
+<% @upcoming_events.each do |event| %>
+  <li><%= link_to event.title, event %></li>
+<% end %>
 <br/>
- Past events:
- <% @past_events.each do |event| %>
- <li><%= link_to event.title, event %></li>
- <% end %>
+<h1>Past Events</h1>
+<% @past_events.each do |event| %>
+  <li><%= link_to event.title, event %></li>
+<% end %>

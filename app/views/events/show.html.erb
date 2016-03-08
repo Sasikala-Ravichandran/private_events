@@ -1,34 +1,22 @@
- 
-<h1><%= @event.title %></h1><br/>
-I am created by <%=  @event.creator.name %><br/> 
-
+<h1><%= @event.title %></h1><br/>I am created by <%=  @event.creator.name %><br/> 
 <br/>
 <br/>
- This event is going to be attended by <%= @event.attendees.count %> people<br/>
+<p> This event is going to be attended by <%= @event.attendees.count %> people</p><br/>
 <% @event.attendees.each do |attendee| %>
-<li> <%= link_to attendee.name, attendee %></li>
+  <li> <%= link_to attendee.name, attendee %></li>
 <% end %> 
 <br/>
 <br/>
 <% unless @event.attendees.include?(current_user) %>
-   Wanna to join us? 
-	<%= render 'attend_form' %>
-	 <!--<%= button_to "Attend", attendances_path(:attending_event_id => @event.id) %><br/>-->
+  Wanna to join us?
+  <%= render 'attend_form' %>
 <% else %>
-    Have another appointment during this time?
-	<%= render 'cancel_form' %>
-	We can understand you.
-	 <!--<%= button_to "Attend", attendance_path(:id => @event.id), :method => :delete %><br/>-->
+  Have another appointment during this time?
+  <%= render 'cancel_form' %>
+  We can understand you.	
 <% end %>
-
 <br/>
 <br/>
 <%= link_to "Create an Event", new_event_path %><br/>
 <%= link_to "Show me all the events", events_path %><br/>
 <%= link_to "Back", current_user %> 
-
-<br/>
-<br/>
-My Reference:<br/>
-ID: <%= @event.id%><br/>
-current_name: <%= current_user.name %><br/>

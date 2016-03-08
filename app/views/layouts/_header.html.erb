@@ -8,9 +8,8 @@
       <li><%= link_to "Show all my friends", users_path %></li>
       <li><%= link_to "(#{current_user.name}) Sign Out", logout_path, method: "delete" %></li>
     <% else %>
-        <li><%= link_to "Sign Up", signup_path %></li>
-        <li><%= link_to "Sign In", login_path %></li>
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Sign In", login_path %></li>
     <% end %>
   </ul>
-  
 </div>
