@@ -10,13 +10,13 @@ class AttendancesController < ApplicationController
       flash[:error] = "unable to follow"
       redirect_to event_path(@attendance.attending_event_id)
     end
-	end
+  end
 
   def destroy
     @attendance = current_user.attendance.find(params[:id])
     @event = @attendance.attending_events
     @attendance.destroy
     flash[:notice] = "Successfully cancelled"
-    redirect_to @event 
-	end
+    redirect_to @event
+  end
 end
